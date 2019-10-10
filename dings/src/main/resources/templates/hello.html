@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"
+	href=".../static/css/style.css" />
+<meta charset="UTF-8">
+<title>Dies ist ein Titel!</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+			<a class="navbar-brand" href="#">Navnavnav</a>
+		
+	 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	 		<ul class="navbar-nav ml-auto">
+	 			<li class="nav-item">
+	 				<a class="nav-link" href="#">Home</a>
+	 			</li>
+	 			<li class="nav-item dropdown">
+	 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Einträge</a>
+	 				<div class="dropdown-menu">
+	 					<a class="dropdown-item" href="#">vorgestern</a>
+	 					<a class="dropdown-item" href="#">gestern</a>
+	 					<a class="dropdown-item" href="#">heute</a>
+	 					<div class="dropdown-divider"></div>
+	 					<a class="dropdown-item" href="#">alle</a>
+	 				</div>
+	 			</li>
+	 				 			<li class="nav-item">
+	 				<a class="nav-link" href="#">Test</a>
+	 			</li>	 				
+	 		</ul>
+	 	</div>
+		</nav>
+		<div class="jumbotron">
+	<h1 class="text-info">Hallo. Da unten sind Einträge.</h1>
+	
+	<p></p>
+	
+<p></p>
+	<table class="table">
+		<thead>
+			<tr class="d-flex">
+				<th class="col-6">Eintrag</th>
+				<th class="col-3">Tage</th>
+				<th class="col-3">Minuten</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="d-flex" th:each="eintrag : ${alleEintraege}">
+				<td class="col-6" th:text="${eintrag.text}"></td>
+				<td class="col-3" th:text="${eintrag.tage}"></td>
+				<td class="col-3" th:text="${eintrag.minuten}"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+
+	<form th:action="@{/eintraege}" th:object="${eintrag}" method="POST">
+		<div class="row mt-4">
+			<label class="label m-2" for="text">Neuer Eintrag</label>
+			<input type="text" name="text" autofocus="autofocus"> </input>
+			<button type="submit" class="btn btn-info ml-2">speichern</button>
+		</div>
+	</form>
+	</div>
+	<div class="row">
+	<div class="col-sm-12 col-md-4">
+		<div class="card mb-4">
+			<div class="card-body text-center">
+				<h5 class="card-title">It's a card!</h5>
+				<p class="card-text">Keine Ahnung, was hier rein soll, aber Karten sind cool!</p>
+				<a href="#" class="card-link text-info">Link1</a>
+			</div>
+		</div>
+	</div>	
+		<div class="col">
+		<div class="card">
+			<div class="card-body text-center">
+				<h5 class="card-title">It's a card!</h5>
+				<p class="card-text">Keine Ahnung, was hier rein soll, aber Karten sind cool!</p>
+				<a href="#" class="card-link text-info">Link2</a>
+			</div>
+		</div>
+	</div>
+		<div class="col">
+		<div class="card">
+			<div class="card-body text-center">
+				<h5 class="card-title">It's a card!</h5>
+				<p class="card-text">Keine Ahnung, was hier rein soll, aber Karten sind cool!</p>
+				<a href="#" class="card-link text-info">Link3</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="row mt-sm-4 mt-md-0">
+		<div class="col-sm-12 col-md-8 text-sm-center text-md-left">
+			<h3>Wichtige Überschrift </h3>
+			<p class="lead">Wichtige Unterüberschrift?</p>
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<h3 class="mb-4">Sekundäres Menü</h3>
+			
+			<ul class="nav flex-column nav-pills">
+				<li class="nav-item">
+					<a class="nav-link active bg-info" href="#">Active</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-info" href="#">Link</a>
+				</li>
+				<li class="nav-item text-info">
+					<a class="nav-link disabled" href="#">Disabled</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
