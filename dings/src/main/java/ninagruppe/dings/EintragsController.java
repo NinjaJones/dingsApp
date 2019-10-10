@@ -32,6 +32,17 @@ public class EintragsController
 
         model.addAttribute("alleEintraege", repository.findAll());
 
+        EintragsProtokollierer proto = new EintragsProtokollierer(
+                repository.findAll());
+        try
+        {
+            proto.writeInFile();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Konnte nicht in Datei schreiben!");
+        }
+
         return "hello";
     }
 
